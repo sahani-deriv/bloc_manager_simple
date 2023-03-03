@@ -1,11 +1,21 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:bloc_manager_simple/pages/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: const [
+            FirstNumber(),
+            SecondNumber(),
+            ThirdNumber(),
+          ],
+        ),
+      ),
+    );
   }
 }
