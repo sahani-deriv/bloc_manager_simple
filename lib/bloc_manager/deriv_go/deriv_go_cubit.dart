@@ -13,23 +13,23 @@ class DerivGoCubit extends Cubit<DerivGoState> {
   }
 
   void startRefactoring() async {
-    emit(DerivGoAddingFeature());
+    emit(DerivGoRefactoring());
     await Future.delayed(const Duration(seconds: 1), () {
-      emit(DerivGoInitial());
+      emit(DerivGoTaskCompleted());
     });
   }
 
   void startProductionFix() async {
-    emit(DerivGoAddingFeature());
+    emit(DerivGoProductionFixing());
     await Future.delayed(const Duration(seconds: 1), () {
-      emit(DerivGoInitial());
+      emit(DerivGoTaskCompleted());
     });
   }
 
   void requestArchitectureHelp() async {
-    emit(DerivGoAddingFeature());
+    emit(DerivGoRequireArchitecture());
     await Future.delayed(const Duration(seconds: 1), () {
-      emit(DerivGoInitial());
+      emit(DerivGoTaskCompleted());
     });
   }
 }
