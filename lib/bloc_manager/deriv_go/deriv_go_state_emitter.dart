@@ -10,5 +10,23 @@ class DerivGoStateEmitter
   void handleStates({
     required DerivGoStateListener stateListener,
     required Object state,
-  }) {}
+  }) {
+    switch (state) {
+      case DerivGoAddingFeature:
+        stateListener.onGoAddingNewFeature();
+        break;
+      case DerivGoRefactoring:
+        stateListener.onGoRefactoring();
+        break;
+      case DerivGoProductionFixing:
+        stateListener.onGoProductionFix();
+        break;
+      case DerivGoRequireArchitecture:
+        stateListener.onGoRequestArchitectureHelp();
+        break;
+      case DerivGoTaskCompleted:
+        stateListener.onGoTaskCompleted();
+        break;
+    }
+  }
 }

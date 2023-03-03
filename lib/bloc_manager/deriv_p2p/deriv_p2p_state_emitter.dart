@@ -10,5 +10,23 @@ class DerivP2PStateEmitter
   void handleStates({
     required DerivP2PStateListener stateListener,
     required Object state,
-  }) {}
+  }) {
+    switch (state) {
+      case DerivP2PAddingFeature:
+        stateListener.onP2pAddingNewFeature();
+        break;
+      case DerivP2PRefactoring:
+        stateListener.onP2pRefactoring();
+        break;
+      case DerivP2PProductionFixing:
+        stateListener.onP2pProductionFix();
+        break;
+      case DerivP2PRequireArchitecture:
+        stateListener.onP2pRequestArchitectureHelp();
+        break;
+      case DerivP2PTaskCompleted:
+        stateListener.onP2pTaskCompleted();
+        break;
+    }
+  }
 }
