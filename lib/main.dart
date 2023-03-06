@@ -1,11 +1,8 @@
-import 'package:bloc_manager_simple/bloc_manager/first_number/first_number_state_emitter.dart';
-import 'package:bloc_manager_simple/bloc_manager/second_number/second_number_state_emitter.dart';
 import 'package:bloc_manager_simple/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deriv_bloc_manager/manager.dart';
 
-import 'bloc_manager/first_number/first_number_cubit.dart';
-import 'bloc_manager/second_number/second_number_cubit.dart';
+import 'bloc_manager/bloc_manager.dart';
 
 void main() {
   registerBlocs();
@@ -14,15 +11,16 @@ void main() {
 }
 
 registerBlocs() => BlocManager.instance
-  ..register(FirstNumberCubit())
-  ..register(SecondNumberCubit());
+  ..register(DerivGoCubit())
+  ..register(DerivP2PCubit())
+  ..register(DerivArchitectureCubit());
 
 setUpEventDispatcher() => StateDispatcher(BlocManager.instance)
-  ..register<FirstNumberCubit, FirstNumberStateEmitter>(
-    (BaseBlocManager blocManager) => FirstNumberStateEmitter(blocManager),
+  ..register<DerivGoCubit, DerivGoStateEmitter>(
+    (BaseBlocManager blocManager) => DerivGoStateEmitter(blocManager),
   )
-  ..register<SecondNumberCubit, SecondNumberStateEmitter>(
-    (BaseBlocManager blocManager) => SecondNumberStateEmitter(blocManager),
+  ..register<DerivP2PCubit, DerivP2PStateEmitter>(
+    (BaseBlocManager blocManager) => DerivP2PStateEmitter(blocManager),
   );
 
 class MyApp extends StatelessWidget {
