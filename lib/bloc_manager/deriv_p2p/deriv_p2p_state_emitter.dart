@@ -11,7 +11,7 @@ class DerivP2PStateEmitter
     required DerivP2PStateListener stateListener,
     required Object state,
   }) {
-    switch (state) {
+    switch (state.runtimeType) {
       case DerivP2PAddingFeature:
         stateListener.onP2pAddingNewFeature();
         break;

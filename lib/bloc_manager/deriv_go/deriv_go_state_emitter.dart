@@ -11,7 +11,7 @@ class DerivGoStateEmitter
     required DerivGoStateListener stateListener,
     required Object state,
   }) {
-    switch (state) {
+    switch (state.runtimeType) {
       case DerivGoAddingFeature:
         stateListener.onGoAddingNewFeature();
         break;
