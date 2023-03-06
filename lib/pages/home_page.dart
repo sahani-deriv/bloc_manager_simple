@@ -8,12 +8,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: const [
-            FirstNumber(),
-            SecondNumber(),
-            ThirdNumber(),
-          ],
+        appBar: AppBar(
+          title: const Text('Bloc Manager'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DerivGoWidget(),
+              const SizedBox(height: 20),
+              DerivP2PWidget(),
+              const SizedBox(height: 20),
+              DerivArchitectureWidget(),
+            ],
+          ),
         ),
       ),
     );

@@ -7,9 +7,9 @@ class DerivGoCubit extends Cubit<DerivGoState> {
 
   void startAddingNewFeature() async {
     emit(DerivGoAddingFeature());
-    await Future.delayed(const Duration(seconds: 1), () {
-      emit(DerivGoInitial());
-    });
+    // await Future.delayed(const Duration(seconds: 5), () {
+    //   emit(DerivGoTaskCompleted());
+    // });
   }
 
   void startRefactoring() async {
