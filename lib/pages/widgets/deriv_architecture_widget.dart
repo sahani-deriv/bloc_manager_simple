@@ -21,15 +21,11 @@ class DerivArchitectureWidget extends StatelessWidget {
         BlocBuilder<DerivArchitectureCubit, DerivArchitectureState>(
             bloc: architectureCubit,
             builder: (context, state) {
-              if (state is DerivReacting) {
+              if (state is DerivArchitectureReacting) {
                 return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(state.reaction,
-                        height: 100, width: 100, fit: BoxFit.cover),
-                    Image.asset('assets/dummy.webp',
-                        height: 100, width: 100, fit: BoxFit.cover),
-                    Image.asset('assets/dummy.webp',
                         height: 100, width: 100, fit: BoxFit.cover),
                   ],
                 );

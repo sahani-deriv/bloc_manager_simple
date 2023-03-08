@@ -12,4 +12,10 @@ class DerivGoProductionFixing extends DerivGoState {}
 
 class DerivGoRequireArchitecture extends DerivGoState {}
 
+class DerivGoReactingState extends DerivGoState {
+  final String reaction;
+
+  DerivGoReactingState({required this.reaction});
+}
+
 class DerivGoTaskCompleted extends DerivGoState {}

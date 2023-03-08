@@ -6,8 +6,8 @@ abstract class DerivArchitectureState {}
 
 class DerivArchitectureInitial extends DerivArchitectureState {}
 
-class DerivReacting extends DerivArchitectureState {
+class DerivArchitectureReacting extends DerivArchitectureState {
   final Reaction reaction;
 
-  DerivReacting({required this.reaction});
+  DerivArchitectureReacting({required this.reaction});
 }

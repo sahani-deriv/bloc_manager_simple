@@ -12,4 +12,10 @@ class DerivP2PProductionFixing extends DerivP2PState {}
 
 class DerivP2PRequireArchitecture extends DerivP2PState {}
 
+class DerivP2PReactingState extends DerivP2PState {
+  final String reaction;
+
+  DerivP2PReactingState({required this.reaction});
+}
+
 class DerivP2PTaskCompleted extends DerivP2PState {}
