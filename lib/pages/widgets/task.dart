@@ -8,7 +8,7 @@ class TaskType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: GestureDetector(
         onTap: onTaskTapped,
         child: DecoratedBox(
@@ -17,8 +17,14 @@ class TaskType extends StatelessWidget {
               border: Border.all(color: Colors.black, width: 1),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(task),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30.0),
+              child: Text(
+                task,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
             )),
       ),
     );

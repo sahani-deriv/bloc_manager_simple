@@ -53,9 +53,6 @@ class DerivP2PCubit extends Cubit<DerivP2PState>
 
   @override
   void onGoTaskCompleted() async {
-    emit(DerivP2PReactingState(reaction: 'assets/celebrate.gif'));
-    await Future.delayed(const Duration(seconds: 3), () {
-      emit(DerivP2PInitial());
-    });
+    emit(DerivP2PInitial());
   }
 }

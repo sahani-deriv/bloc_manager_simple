@@ -32,13 +32,15 @@ class DerivGoCubit extends Cubit<DerivGoState>
 
   void requestArchitectureHelp() async {
     emit(DerivGoRequireArchitecture());
-    await Future.delayed(const Duration(seconds: 3), () {
+    await Future.delayed(const Duration(seconds: 6), () {
       emit(DerivGoTaskCompleted());
     });
   }
 
   @override
-  void onP2pAddingNewFeature() {}
+  void onP2pAddingNewFeature() {
+    emit(DerivGoReactingState(reaction: 'assets/drumroll.gif'));
+  }
 
   @override
   void onP2pProductionFix() {
@@ -53,9 +55,6 @@ class DerivGoCubit extends Cubit<DerivGoState>
 
   @override
   void onP2pTaskCompleted() async {
-    emit(DerivGoReactingState(reaction: 'assets/celebrate.gif'));
-    await Future.delayed(const Duration(seconds: 3), () {
-      emit(DerivGoInitial());
-    });
+    emit(DerivGoInitial());
   }
 }

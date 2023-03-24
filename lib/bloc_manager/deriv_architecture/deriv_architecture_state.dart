@@ -11,3 +11,9 @@ class DerivArchitectureReacting extends DerivArchitectureState {
 
   DerivArchitectureReacting({required this.reaction});
 }
+
+class DerivAssigningToTeam extends DerivArchitectureState {
+  final String chat;
+
+  DerivAssigningToTeam({required this.chat});
+}

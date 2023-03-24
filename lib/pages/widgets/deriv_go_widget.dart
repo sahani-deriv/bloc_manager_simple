@@ -14,7 +14,7 @@ class DerivGoWidget extends StatelessWidget {
     return Row(
       children: [
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text('DERIV GO', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 10),
@@ -46,7 +46,7 @@ class DerivGoWidget extends StatelessWidget {
             builder: (context, state) {
               if (state is DerivGoReactingState) {
                 return Image.asset(state.reaction,
-                    height: 100, width: 100, fit: BoxFit.cover);
+                    height: 150, width: 150, fit: BoxFit.cover);
               } else {
                 return Container();
               }

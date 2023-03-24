@@ -13,29 +13,56 @@ class DerivArchitectureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text('DERIV ARCHITECTURE',
             style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 10),
-        BlocBuilder<DerivArchitectureCubit, DerivArchitectureState>(
+        BlocConsumer<DerivArchitectureCubit, DerivArchitectureState>(
             bloc: architectureCubit,
+            listener: (context, state) {
+              if (state is DerivAssigningToTeam) {
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return Dialog(
+                        child: Image.asset(
+                          state.chat,
+                          width: 650,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    });
+              }
+            },
             builder: (context, state) {
               if (state is DerivArchitectureReacting) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(state.reaction,
-                        height: 100, width: 100, fit: BoxFit.cover),
+                        height: 300, width: 450, fit: BoxFit.cover),
                   ],
                 );
               } else {
                 return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    TaskType(onTaskTapped: () {}, task: 'Assign to naif'),
-                    TaskType(onTaskTapped: () {}, task: 'Assign to naif'),
-                    TaskType(onTaskTapped: () {}, task: 'Assign to naif'),
+                    TaskType(
+                        onTaskTapped: () {
+                          architectureCubit.assignToNaif();
+                        },
+                        task: 'Assign to Naif'),
+                    TaskType(
+                        onTaskTapped: () {
+                          architectureCubit.assignToMohammad();
+                        },
+                        task: 'Assign to Muhammad'),
+                    TaskType(
+                        onTaskTapped: () {
+                          architectureCubit.assignToSahani();
+                        },
+                        task: 'Assign to Sahani'),
                   ],
                 );
               }

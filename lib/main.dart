@@ -1,5 +1,6 @@
-import 'package:bloc_manager_simple/pages/home_page.dart';
+import 'package:bloc_manager_simple/pages/start_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_deriv_bloc_manager/manager.dart';
 
 import 'bloc_manager/bloc_manager.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const StartPage(),
     );
   }
 }

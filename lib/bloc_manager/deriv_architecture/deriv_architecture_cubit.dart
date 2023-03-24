@@ -7,6 +7,18 @@ class DerivArchitectureCubit extends Cubit<DerivArchitectureState>
     implements DerivGoStateListener, DerivP2PStateListener {
   DerivArchitectureCubit() : super(DerivArchitectureInitial());
 
+  void assignToNaif() async {
+    emit(DerivAssigningToTeam(chat: 'assets/chats/naif.png'));
+  }
+
+  void assignToMohammad() async {
+    emit(DerivAssigningToTeam(chat: 'assets/chats/iran.png'));
+  }
+
+  void assignToSahani() async {
+    emit(DerivAssigningToTeam(chat: 'assets/chats/sahani.png'));
+  }
+
   @override
   void onGoAddingNewFeature() {
     emit(DerivArchitectureReacting(reaction: 'assets/drumroll.gif'));
@@ -29,10 +41,7 @@ class DerivArchitectureCubit extends Cubit<DerivArchitectureState>
 
   @override
   void onGoTaskCompleted() async {
-    emit(DerivArchitectureReacting(reaction: 'assets/celebrate.gif'));
-    await Future.delayed(const Duration(seconds: 3), () {
-      emit(DerivArchitectureInitial());
-    });
+    emit(DerivArchitectureInitial());
   }
 
   @override
@@ -57,9 +66,6 @@ class DerivArchitectureCubit extends Cubit<DerivArchitectureState>
 
   @override
   void onP2pTaskCompleted() async {
-    emit(DerivArchitectureReacting(reaction: 'assets/celebrate.gif'));
-    await Future.delayed(const Duration(seconds: 2), () {
-      emit(DerivArchitectureInitial());
-    });
+    emit(DerivArchitectureInitial());
   }
 }
